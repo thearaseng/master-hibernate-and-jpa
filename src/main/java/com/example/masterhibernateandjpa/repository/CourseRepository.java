@@ -18,7 +18,14 @@ public class CourseRepository {
         return entityManager.find(Course.class, id);
     }
 
-//    public void save()
+    public Course save(Course course){
+        if(course.getId() == null){
+            entityManager.persist(course);
+        }else {
+            entityManager.merge(course);
+        }
+        return course;
+    }
 
     public void deleteById(long id){
         entityManager.remove(this.findById(id));
