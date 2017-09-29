@@ -42,7 +42,8 @@ public class CourseRepository {
         flush() -> commit to the database
         clear() -> clear detach all the following transactions
         detach() -> detach the specified object from the transaction
-         ***********************************************************/
+        refresh() -> restore the data from the database
+        ***********************************************************/
 
         course.setName("Java Developer - updated");
     }
