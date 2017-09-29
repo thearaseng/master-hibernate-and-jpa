@@ -31,11 +31,20 @@ public class CourseRepository {
         entityManager.remove(this.findById(id));
     }
 
-    public Course playWithEntityManager(){
+    public void playWithEntityManager(){
         Course course = new Course("Java Developer");
         entityManager.persist(course);
+
+        /***********************************************************
+        entityManager.flush();
+        entityManager.clear();
+        entityManager.detach(course);
+        flush() -> commit to the database
+        clear() -> clear detach all the following transactions
+        detach() -> detach the specified object from the transaction
+         ***********************************************************/
+
         course.setName("Java Developer - updated");
-        return course;
     }
 
 }

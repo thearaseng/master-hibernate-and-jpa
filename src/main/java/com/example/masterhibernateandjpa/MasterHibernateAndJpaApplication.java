@@ -27,8 +27,8 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 		logger.info("Course id 10001 - {}", course);
 		courseRepository.deleteById(10001);
 		courseRepository.save(new Course("Sql developer"));
-		Course course1 = courseRepository.playWithEntityManager();
-		course1.setName("Java developer - update 2 - without effect the database");
+
+		courseRepository.playWithEntityManager();
 
 	}
 }
