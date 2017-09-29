@@ -30,4 +30,12 @@ public class CourseRepository {
     public void deleteById(long id){
         entityManager.remove(this.findById(id));
     }
+
+    public Course playWithEntityManager(){
+        Course course = new Course("Java Developer");
+        entityManager.persist(course);
+        course.setName("Java Developer - updated");
+        return course;
+    }
+
 }
