@@ -24,7 +24,7 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 	@Override
 	public void run(String... strings) throws Exception {
 		Course course = courseRepository.findById(10001);
-
 		logger.info("Course id 10001 - {}", course);
+		courseRepository.deleteById(10001);
 	}
 }

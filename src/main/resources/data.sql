@@ -16,3 +16,5 @@ INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE )
 VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
 
 INSERT INTO course(id, name) VALUES (10001, 'Java Developer');
+INSERT INTO course(id, name) VALUES (10002, 'Php Developer');
+INSERT INTO course(id, name) VALUES (10003, 'Ruby Developer');
