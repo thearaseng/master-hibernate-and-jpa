@@ -41,4 +41,15 @@ public class StudentRepository {
         entityManager.persist(student);
     }
 
+    public void retrieveStudentAndPassport(){
+        Student student = this.findById(20001);
+        System.out.println(student);
+        System.out.println(student.getPassport());
+
+        System.out.println("------------------------------");
+        Passport passport = entityManager.find(Passport.class, 40001L);
+        System.out.println(passport);
+        System.out.println(passport.getStudent());
+    }
+
 }
