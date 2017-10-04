@@ -2,6 +2,7 @@ package com.example.masterhibernateandjpa;
 
 import com.example.masterhibernateandjpa.entity.Course;
 import com.example.masterhibernateandjpa.repository.CourseRepository;
+import com.example.masterhibernateandjpa.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 	@Autowired
 	private CourseRepository courseRepository;
 
+	@Autowired
+	private StudentRepository studentRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(MasterHibernateAndJpaApplication.class, args);
 	}
@@ -29,6 +33,8 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 		courseRepository.save(new Course("Sql developer"));
 
 		courseRepository.playWithEntityManager();
+
+		studentRepository.saveStudentWithPassport();
 
 	}
 }
