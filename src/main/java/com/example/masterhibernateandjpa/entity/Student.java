@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-public class Course {
+public class Student {
 
     @Id
     @GeneratedValue
@@ -19,15 +19,9 @@ public class Course {
     @Column(nullable = false)
     private String name;
 
-    @UpdateTimestamp
-    private LocalDateTime lastUpdatedDate;
+    protected Student(){}
 
-    @CreationTimestamp
-    private LocalDateTime createdDate;
-
-    protected Course(){}
-
-    public Course(String name){
+    public Student(String name){
         this.name = name;
     }
 
@@ -45,7 +39,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course {" +
+        return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
