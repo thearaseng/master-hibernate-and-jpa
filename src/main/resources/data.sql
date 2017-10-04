@@ -18,3 +18,7 @@ VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
 INSERT INTO course(id, name, created_date, last_updated_date) VALUES (10001, 'Java Developer', sysdate(), sysdate());
 INSERT INTO course(id, name, created_date, last_updated_date) VALUES (10002, 'Php Developer', sysdate(), sysdate());
 INSERT INTO course(id, name, created_date, last_updated_date) VALUES (10003, 'Ruby Developer', sysdate(), sysdate());
+
+INSERT INTO student(id, number) VALUES (20001, 'Theara');
+INSERT INTO student(id, number) VALUES (20001, 'Dara');
+INSERT INTO student(id, number) VALUES (20001, 'Rotha');
