@@ -5,6 +5,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
-    private List<Course> courses;
+    private List<Course> courses = new ArrayList<>();
 
     protected Student(){}
 
@@ -52,6 +53,14 @@ public class Student {
 
     public void setPassport(Passport passport) {
         this.passport = passport;
+    }
+
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
+
+    public boolean removeCourse(Course course){
+        return courses.remove(course);
     }
 
     @Override

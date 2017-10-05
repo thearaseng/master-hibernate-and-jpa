@@ -1,5 +1,6 @@
 package com.example.masterhibernateandjpa.repository;
 
+import com.example.masterhibernateandjpa.entity.Course;
 import com.example.masterhibernateandjpa.entity.Passport;
 import com.example.masterhibernateandjpa.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,18 @@ public class StudentRepository {
         Passport passport = entityManager.find(Passport.class, 40001L);
         System.out.println(passport);
         System.out.println(passport.getStudent());
+    }
+
+    public void insertStudentAndCourse(){
+        Student student = new Student("Vuthy");
+//        Student student = entityManager.find(Student.class, 20001L);
+        Course course = entityManager.find(Course.class, 10002L);
+//        student.addCourse(course);
+//        course.addStudent(student);
+        student.addCourse(course);
+
+        // ********* call persist method or add method on owning side Object **********
+        entityManager.persist(student);
     }
 
 }

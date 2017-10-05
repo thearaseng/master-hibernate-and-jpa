@@ -40,5 +40,7 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 
 		courseRepository.addSomeReviews();
 
+		studentRepository.insertStudentAndCourse();
+
 	}
 }
