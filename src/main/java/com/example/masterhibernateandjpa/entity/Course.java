@@ -52,6 +52,14 @@ public class Course {
         return this.reviews.remove(review);
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     public LocalDateTime getLastUpdatedDate() {
         return lastUpdatedDate;
     }

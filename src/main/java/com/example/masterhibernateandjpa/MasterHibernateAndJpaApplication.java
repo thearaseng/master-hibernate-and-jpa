@@ -38,5 +38,7 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 
 		studentRepository.retrieveStudentAndPassport();
 
+		courseRepository.addSomeReviews();
+
 	}
 }
