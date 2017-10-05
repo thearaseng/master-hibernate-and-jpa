@@ -35,4 +35,11 @@ public abstract class Employee {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

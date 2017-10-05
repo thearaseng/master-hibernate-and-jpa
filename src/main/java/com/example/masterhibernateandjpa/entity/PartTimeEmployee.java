@@ -24,4 +24,11 @@ public class PartTimeEmployee extends Employee {
     public void setHourlyWage(BigDecimal hourlyWage) {
         this.hourlyWage = hourlyWage;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "PartTimeEmployee{" +
+                "hourlyWage=" + hourlyWage +
+                '}';
+    }
 }
