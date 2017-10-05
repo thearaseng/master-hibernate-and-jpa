@@ -27,6 +27,8 @@ INSERT INTO student(id, name, passport_id) VALUES (20001, 'Theara', 40001);
 INSERT INTO student(id, name, passport_id) VALUES (20002, 'Dara', 40002);
 INSERT INTO student(id, name, passport_id) VALUES (20003, 'Rotha', 40003);
 
-INSERT INTO review(id, rating, description) VALUES (50001, '5', 'Description 1');
-INSERT INTO review(id, rating, description) VALUES (50002, '2', 'Description 2');
-INSERT INTO review(id, rating, description) VALUES (50003, '4', 'Description 3');
+INSERT INTO review(id, rating, description, course_id) VALUES (50001, '5', 'Description 1', 10002);
+INSERT INTO review(id, rating, description, course_id) VALUES (50002, '2', 'Description 2', 10002);
+INSERT INTO review(id, rating, description, course_id) VALUES (50003, '4', 'Description 3', 10003);
+INSERT INTO review(id, rating, description, course_id) VALUES (50004, '7', 'Description 1', 10003);
+INSERT INTO review(id, rating, description, course_id) VALUES (50005, '2', 'Description 1', 10002);
