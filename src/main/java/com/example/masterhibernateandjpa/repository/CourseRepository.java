@@ -35,8 +35,8 @@ public class CourseRepository {
 
     public void addSomeReviews(){
         Course course = entityManager.find(Course.class, 10002L);
-        List<Review> reviews = course.getReviews();
         System.out.println("------------ Reviews from Course ID : 10002 ---------------------");
+        List<Review> reviews = course.getReviews();
         System.out.println(reviews);
 
         Review review1 = new Review("8", "Description 8");
