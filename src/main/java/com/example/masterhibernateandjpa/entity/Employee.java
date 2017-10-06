@@ -1,11 +1,11 @@
 package com.example.masterhibernateandjpa.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Default
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn(name = "employee_type")
 public abstract class Employee {
 
     @Id
