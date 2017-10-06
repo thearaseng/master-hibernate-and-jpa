@@ -37,7 +37,7 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... strings) throws Exception {
-		Course course = courseRepository.findById(10001);
+		/*Course course = courseRepository.findById(10001);
 		logger.info("Course id 10001 - {}", course);
 		courseRepository.deleteById(10001);
 		courseRepository.save(new Course("Sql developer"));
@@ -60,7 +60,9 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 
 		List<Employee> employees = employeeRepository.getAllEmployee();
 
-		logger.info("All employees -> {}", employees);
+		logger.info("All employees -> {}", employees);*/
+
+		courseRepository.getCourseUsingJpql();
 
 	}
 }

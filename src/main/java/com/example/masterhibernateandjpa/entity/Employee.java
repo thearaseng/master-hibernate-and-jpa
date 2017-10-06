@@ -4,9 +4,9 @@ import javax.persistence.*;
 
 //@MappedSuperclass ********* Mark this class as common class for subclass. It will create a table per class.
 @Entity
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Default
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Default
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name = "employee_type")
 public abstract class Employee {
 

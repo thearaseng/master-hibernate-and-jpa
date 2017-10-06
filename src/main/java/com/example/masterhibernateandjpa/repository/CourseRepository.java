@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -55,6 +57,25 @@ public class CourseRepository {
         System.out.println(course.getReviews());
         System.out.println("----- We don't get new inserted review after insertion, because it's not really persisted to the database");
 
+    }
+
+    public void getCourseUsingJpql(){
+        TypedQuery<Course> typedQuery =  entityManager.createQuery("SELECT c FROM Course c where c.students is empty ", Course.class);
+        List<Course> courses = typedQuery.getResultList();
+        System.out.println("The results -> " + courses);
+
+        typedQuery = entityManager.createQuery("SELECT c FROM Course c where size(c.students) >= 2 ", Course.class);
+        System.out.println("Courses that have more than 2 students -> " + typedQuery.getResultList());
+
+        typedQuery = entityManager.createQuery("SELECT c FROM Course c order by size(c.students) desc", Course.class);
+        System.out.println("Courses order by number of students -> " + typedQuery.getResultList());
+
+        Query query = entityManager.createQuery("SELECT c, s FROM Course c join c.students s");
+        List<Object[]> resutls = (List<Object[]>)query.getResultList();
+        for (Object[] result : resutls){
+            System.out.println("Course -> " + result[0]);
+            System.out.println("Student -> " + result[1]);
+        }
     }
 
     public void playWithEntityManager(){
