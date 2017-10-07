@@ -5,6 +5,7 @@ import com.example.masterhibernateandjpa.entity.Employee;
 import com.example.masterhibernateandjpa.entity.FullTimeEmployee;
 import com.example.masterhibernateandjpa.entity.PartTimeEmployee;
 import com.example.masterhibernateandjpa.repository.CourseRepository;
+import com.example.masterhibernateandjpa.repository.CourseSpringDataRepository;
 import com.example.masterhibernateandjpa.repository.EmployeeRepository;
 import com.example.masterhibernateandjpa.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class MasterHibernateAndJpaApplication implements CommandLineRunner{
@@ -31,13 +33,17 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	@Autowired
+	private CourseSpringDataRepository courseSpringDataRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(MasterHibernateAndJpaApplication.class, args);
 	}
 
 	@Override
 	public void run(String... strings) throws Exception {
-		/*Course course = courseRepository.findById(10001);
+		/*
+		Course course = courseRepository.findById(10001);
 		logger.info("Course id 10001 - {}", course);
 		courseRepository.deleteById(10001);
 		courseRepository.save(new Course("Sql developer"));
@@ -60,9 +66,16 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 
 		List<Employee> employees = employeeRepository.getAllEmployee();
 
-		logger.info("All employees -> {}", employees);*/
+		logger.info("All employees -> {}", employees);
 
 		courseRepository.getCourseUsingJpql();
 
+		courseRepository.testCriteriaQuery();
+		*/
+
+		Optional<Course> courseOptional = courseSpringDataRepository.findById(10001L);
+		if(courseOptional.isPresent()){
+			System.out.println(courseOptional.get().toString());
+		}
 	}
 }

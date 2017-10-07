@@ -2,6 +2,7 @@ package com.example.masterhibernateandjpa.repository;
 
 import com.example.masterhibernateandjpa.entity.Course;
 import com.example.masterhibernateandjpa.entity.Review;
+import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
@@ -75,6 +80,27 @@ public class CourseRepository {
         for (Object[] result : resutls){
             System.out.println("Course -> " + result[0]);
             System.out.println("Student -> " + result[1]);
+        }
+    }
+
+    public void testCriteriaQuery(){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Course> criteriaQuery = criteriaBuilder.createQuery(Course.class);
+
+        Root<Course> courseRoot = criteriaQuery.from(Course.class);
+        courseRoot.join("students");
+
+//        Predicate predicate = criteriaBuilder.like(courseRoot.get("name"), "%Java%");
+//        Predicate predicate = criteriaBuilder.isEmpty(courseRoot.get("students"));
+//        criteriaQuery.where(predicate);
+
+        TypedQuery<Course> typedQuery = entityManager.createQuery(criteriaQuery.select(courseRoot));
+
+        System.out.println("--------- Output using JPQL -----------");
+//        System.out.println("Results -> " + typedQuery.getResultList());
+        for(Course course : typedQuery.getResultList()){
+            System.out.println("Course -> " + course);
+            System.out.println("Students -> " + course.getStudents());
         }
     }
 
