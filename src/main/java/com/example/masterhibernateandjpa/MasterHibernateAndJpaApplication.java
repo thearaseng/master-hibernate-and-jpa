@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Sort;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -77,5 +78,9 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 		if(courseOptional.isPresent()){
 			System.out.println(courseOptional.get().toString());
 		}
+
+		Sort sort = new Sort(Sort.Direction.DESC, "name");
+		List<Course> courses = courseSpringDataRepository.findAll(sort);
+		System.out.println(courses);
 	}
 }
