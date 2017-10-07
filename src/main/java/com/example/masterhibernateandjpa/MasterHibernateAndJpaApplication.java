@@ -14,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.math.BigDecimal;
@@ -82,5 +85,10 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 		Sort sort = new Sort(Sort.Direction.DESC, "name").and(new Sort(Sort.Direction.DESC, "id"));
 		List<Course> courses = courseSpringDataRepository.findAll(sort);
 		System.out.println(courses);
+
+		PageRequest pageRequest = PageRequest.of(0, 5);
+		Page<Course> page = courseSpringDataRepository.findAll(pageRequest);
+		System.out.println("First page : " + page.getContent());
+
 	}
 }
