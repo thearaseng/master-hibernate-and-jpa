@@ -1,5 +1,6 @@
 package com.example.masterhibernateandjpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -20,6 +21,7 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<Review> reviews;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "courses")
     private List<Student> students;
 
