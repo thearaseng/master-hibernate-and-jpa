@@ -79,7 +79,7 @@ public class MasterHibernateAndJpaApplication implements CommandLineRunner{
 			System.out.println(courseOptional.get().toString());
 		}
 
-		Sort sort = new Sort(Sort.Direction.DESC, "name");
+		Sort sort = new Sort(Sort.Direction.DESC, "name").and(new Sort(Sort.Direction.DESC, "id"));
 		List<Course> courses = courseSpringDataRepository.findAll(sort);
 		System.out.println(courses);
 	}
